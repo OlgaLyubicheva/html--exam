@@ -20,6 +20,11 @@ $extra-text-color: #000;
 
   &__person {
     text-align: center;
+    box-sizing: border-box;
+    transform: scale(1) translate(0, 0);
+    transition-property: transform;
+    transition-duration: 1s;
+    transition-timing-function: linear;
   }
 
   &__person:hover {
@@ -27,15 +32,21 @@ $extra-text-color: #000;
     height: 287px;
     padding: 10px 0 16px;
     background-color: #eee;
-    transform: translate(0, -10px);
-    // transition:  
+    border-radius: 10px;
+    transform: scale(1.2) translate(0, -10px);  
     z-index: 1;
   }
 
-  // &__person:hover img {
-  //   border-radius: 60px;
-  //   transition: border-radius 1s linear 0;
-  // }
+  &__person:hover &__person--photo {
+    border-radius: 60px;
+  }
+
+  &__person:hover &__details--extra {
+    display: block;
+    margin-top: 8px;
+    font-size: 18px;
+    color: $extra-text-color;
+  }
 
   &__person--photo {
     position: relative;
@@ -44,6 +55,9 @@ $extra-text-color: #000;
     border-radius: 100px;
     overflow: hidden;
     margin: 0 auto;
+    transition-property: border-radius;
+    transition-duration: 1s;
+    transition-timing-function: linear;
   }
 
   &__person--photo img {
@@ -62,10 +76,6 @@ $extra-text-color: #000;
     background-color: #fff;
     border-radius: 50%;
     color: $number-color;
-  }
-
-  &__details {
-    
   }
 
   &__details--name {

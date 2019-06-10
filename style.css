@@ -16,14 +16,29 @@
 }
 .people__person {
   text-align: center;
+  box-sizing: border-box;
+  transform: scale(1) translate(0, 0);
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: linear;
 }
 .people__person:hover {
   width: 220px;
   height: 287px;
   padding: 10px 0 16px;
   background-color: #eee;
-  transform: translate(0, -10px);
+  border-radius: 10px;
+  transform: scale(1.2) translate(0, -10px);
   z-index: 1;
+}
+.people__person:hover .people__person--photo {
+  border-radius: 60px;
+}
+.people__person:hover .people__details--extra {
+  display: block;
+  margin-top: 8px;
+  font-size: 18px;
+  color: #000;
 }
 .people__person--photo {
   position: relative;
@@ -32,6 +47,9 @@
   border-radius: 100px;
   overflow: hidden;
   margin: 0 auto;
+  transition-property: border-radius;
+  transition-duration: 1s;
+  transition-timing-function: linear;
 }
 .people__person--photo img {
   width: inherit;
